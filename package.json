@@ -1,0 +1,24 @@
+{
+  "name": "buffy",
+  "version": "1.0.0",
+  "description": "- bower install - npm start",
+  "main": "text selection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "iojs server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pearvert/buffy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pearvert/buffy/issues"
+  },
+  "homepage": "https://github.com/pearvert/buffy#readme",
+  "devDependencies": {
+    "express": "^4.13.0",
+    "serve-index": "^1.7.0"
+  }
+}
