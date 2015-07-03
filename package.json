@@ -19,6 +19,7 @@
   "homepage": "https://github.com/pearvert/buffy#readme",
   "devDependencies": {
     "express": "^4.13.0",
-    "serve-index": "^1.7.0"
+    "serve-index": "^1.7.0",
+    "xls_to_json_api": "git@github.com:ninjapanzer/xlsx_to_json_api.git"
   }
 }
