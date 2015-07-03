@@ -1,6 +1,6 @@
 <html>
 <head>
-<script src="../d3/d3.min.js"></script>
+<script src="/bower_components/d3/d3.min.js"></script>
 <title>Buffy Body Count-1</title>
 
 <style>
@@ -15,12 +15,12 @@
 .ring {
   stroke: none;
   stroke-width: 0;
-  fill: #eed;  
+  fill: #eed;
 }
 .death {
   fill: #000;
   stroke: none;
-  stroke-width: 0;  
+  stroke-width: 0;
 }
 .endcap {
   stroke: black;
@@ -51,7 +51,7 @@
 .legendDot {
   stroke-width: 0;
 }
-div.killDetail {   
+div.killDetail {
   position: absolute;
   text-align: center;
   width: 595px;
@@ -63,7 +63,7 @@ div.killDetail {
   border-radius: 0px;
   pointer-events: none;
 }
-div.episodeTitle {   
+div.episodeTitle {
   position: absolute;
   text-align: left;
   width: 100px;
@@ -1379,8 +1379,8 @@ var ring = 240;
 var ringOuter = 250
 
 var textForCenter = [
-    {'dataSetName': 'buffyData', 'nameInCenter': 'Buffy'},  
-    {'dataSetName': 'gilesData', 'nameInCenter': 'Giles'},  
+    {'dataSetName': 'buffyData', 'nameInCenter': 'Buffy'},
+    {'dataSetName': 'gilesData', 'nameInCenter': 'Giles'},
 ];
 
 var dotSize = 4;
@@ -1475,9 +1475,9 @@ var labels = spokeLabels.selectAll("text.spokeLabel")
   .style('text-anchor', 'start')
   .style('font-size', '.1em')
   .attr("transform", function (d, i) {
-    return "translate(" + 
-      (centerPoint + Math.cos((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + "," + 
-      (centerPoint + Math.sin((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + ")" + 
+    return "translate(" +
+      (centerPoint + Math.cos((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + "," +
+      (centerPoint + Math.sin((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + ")" +
       "rotate(" + (i * 360 / numberOfSpokes)  + ")"
   })
   .text(function (d) { return d.s + "-" + d.e; })
@@ -1491,9 +1491,9 @@ var labels = spokeLabels.selectAll("text.spokeLabel")
       .duration(200)
       .style("opacity", .9)
     episodeTitle.html(d.title)
-      .style("left", function (d) {return (d3.event.pageX) < 300 ? (d3.event.pageX) + "px" : 
+      .style("left", function (d) {return (d3.event.pageX) < 300 ? (d3.event.pageX) + "px" :
         ((d3.event.pageX)-30) + "px"})
-      .style("top", (d3.event.pageY - 28) + "px"); 
+      .style("top", (d3.event.pageY - 28) + "px");
   })
   .on("mouseout", function(d) {
     episodeTitle.transition()
@@ -1529,8 +1529,8 @@ var centerCap = centerHubCircle.selectAll("circle.endCap")
 
 // killDetail for added information on specific dot
 
-var killDetail = d3.select("body").append("div")   
-  .attr("class", "killDetail")               
+var killDetail = d3.select("body").append("div")
+  .attr("class", "killDetail")
   .style("opacity", 0);
 
 var episodeTitle = d3.select("body").append("div")
@@ -1541,7 +1541,7 @@ var episodeTitle = d3.select("body").append("div")
 
 var buffyLegend = theBuffyChart.append("g")
   .attr('class', 'legendBox');
-  
+
 // Create the colored dots for the legend
 var buffyLegendDots = buffyLegend.selectAll('circle.legendDot')
   .data(legendData)
@@ -1635,7 +1635,7 @@ function updateCircles(newData) {
       .attr("cx", calcCosForDots)
       .attr("cy", calcSinForDots)
       .attr('r', function (d) { return d.KA == 0 ? 0 : 1.5; })
-      .style('fill', function (d) { return d.KA == 1 ? 'white' : 'black';});  
+      .style('fill', function (d) { return d.KA == 1 ? 'white' : 'black';});
 
     // update existing mini dots for assist
     makeSomeDotsAssist
@@ -1682,15 +1682,15 @@ function updateCircles(newData) {
 
       totalKill = totalKills.select("text.totalKillsPerChar")
         .data(totalKillsPerChar)
-        
+
 
 };
 
 function colorTheDots(d) {
   if (d.v_species == 'Vampire') { return '#f33'}
     else if (d.v_species == 'Demon') { return "goldenrod"}
-      else if (d.v_species == 'Human') { return 'steelblue'}; 
-}; 
+      else if (d.v_species == 'Human') { return 'steelblue'};
+};
 
 // There are two SIN and COS functions. Need to figure out proper way.
 // to pass parameters and make this only one set of functions.
@@ -1712,7 +1712,7 @@ function calcSinForDotsOnRemove (d) {
 function colorTheDots(d) {
     if (d.v_species == 'Vampire') { return d.KA == 0 ? '#f33' : d.KA == 1 ? '#f99' : '#300'}
       else if (d.v_species == 'Demon') { return d.KA == 0 ? '#3b3' : d.KA == 1 ? '#573' : '#030'}
-        else if (d.v_species == 'human') { return d.KA == 0 ? '#00f' : d.KA == 1 ? '99f' : '#003'}; 
+        else if (d.v_species == 'human') { return d.KA == 0 ? '#00f' : d.KA == 1 ? '99f' : '#003'};
     };
 
 // A bunch of short routines that aren't currently working or are out os service.
