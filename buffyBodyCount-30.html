@@ -1473,14 +1473,19 @@ var labels = spokeLabels.selectAll("text.spokeLabel")
   .append("text")
   .text(function (d) { return d.s + " - " + d.e; })
   .attr('class', 'spokeLabel')
-  .style('text-anchor', 'start')
+  .style('text-anchor', function (d, i) {
+    if (i > 144/4 && i < (144/4)*3) {
+      return "end"
+    } else {
+      return "start"
+    }})
   .style('font-size', '.5em')
   .attr("transform", function (d, i) {
     if (i > 144/4 && i < (144/4)*3) {
       return "translate(" +
         (centerPoint + Math.cos((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255  ) + "," +
         (centerPoint + Math.sin((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255  ) + ")" +
-        "rotate(" + ((i + (144/4) ) * 360 / numberOfSpokes) + ")"
+        "rotate(" + ((i + (144/2) ) * 360 / numberOfSpokes) + ")"
     } else {
       return "translate(" +
         (centerPoint + Math.cos((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + "," +
