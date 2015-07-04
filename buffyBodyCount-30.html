@@ -1476,10 +1476,17 @@ var labels = spokeLabels.selectAll("text.spokeLabel")
   .style('text-anchor', 'start')
   .style('font-size', '.5em')
   .attr("transform", function (d, i) {
-    return "translate(" +
-      (centerPoint + Math.cos((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + "," +
-      (centerPoint + Math.sin((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + ")" +
-      "rotate(" + (i * 360 / numberOfSpokes) + ")"
+    if (i > 144/4 && i < (144/4)*3) {
+      return "translate(" +
+        (centerPoint + Math.cos((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255  ) + "," +
+        (centerPoint + Math.sin((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255  ) + ")" +
+        "rotate(" + ((i + (144/4) ) * 360 / numberOfSpokes) + ")"
+    } else {
+      return "translate(" +
+        (centerPoint + Math.cos((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + "," +
+       (centerPoint + Math.sin((i + 1.25) * ((2 * Math.PI)/numberOfSpokes)) * 255) + ")" +
+        "rotate(" + (i * 360 / numberOfSpokes) + ")"
+    }
   })
   .on("mouseover", function (d) {
     var episodeTitlelen = d.title.length;
