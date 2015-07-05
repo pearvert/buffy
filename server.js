@@ -9,6 +9,7 @@ app.get('/express', function (req, res) {
   res.send('Hello World!');
 });
 
+// Case sensitive names of the sheets expected to be in the source xlsx file
 var sheets = [
   "andrew",
   "angel",
@@ -33,10 +34,11 @@ var sheets = [
   "totals"
 ];
 
+// Prepare the XLSX -> JSON transformer and register routes in express to the JSON api
 xlsx_api(app, {
-  sheets: sheets,
-  xlsxSource: 'deathDatasets.xlsx',
-  dataDir: __dirname+'/data'
+  sheets: sheets,                  // Array of sheet names (case sensitive)
+  dataDir: __dirname+'/data',      // directory which holds the source xlsx file and where the data will be extracted from into .json files
+  xlsxSource: 'deathDatasets.xlsx' // The name of the your xlsx source file within the data dir above
 });
 
 var server = app.listen(3000, function () {
