@@ -1,4 +1,4 @@
-  <html>
+<html>
 <head>
 <script src="/bower_components/d3/d3.min.js"></script>
 <title>Buffy Body Count-1</title>
@@ -261,14 +261,15 @@ var buffyTitleList = [
 
 
 var legendData = [
-{ 'legendColor': '#f33', 'legendName': 'Vampire', "KA": 0 }, 
-{ 'legendColor': '#fcc', 'legendName': 'Vampire (m)', "KA": 0 }, 
-{ 'legendColor': 'goldenrod', 'legendName': 'Demon', "KA": 0 }, 
-{ 'legendColor': 'yellow', 'legendName': 'Demon (m)', "KA": 0 }, 
-{ 'legendColor': "steelblue", 'legendName': 'Human', "KA": 0 }, 
-{ 'legendColor': "blue", 'legendName': 'Human (m)', "KA": 0 }, 
-{ 'legendColor': "#aaa", 'legendName': 'Assist', "KA": 1 }, 
-{ 'legendColor': "#aaa", 'legendName': 'Assisted by Others', "KA": 2 }
+{ 'legendColor': '#f33', 'legendName': 'Vampire', "KA": 0, "itemLen": 10, "evilKill": 0 }, 
+{ 'legendColor': '#fcc', 'legendName': 'Vampire (m)', "KA": 0, "itemLen": 65, "evilKill": 0 }, 
+{ 'legendColor': 'goldenrod', 'legendName': 'Demon', "KA": 0, "itemLen": 135, "evilKill": 0 }, 
+{ 'legendColor': 'yellow', 'legendName': 'Demon (m)', "KA": 0, "itemLen": 185, "evilKill": 0 }, 
+{ 'legendColor': "steelblue", 'legendName': 'Human', "KA": 0, "itemLen": 250, "evilKill": 0 }, 
+{ 'legendColor': "blue", 'legendName': 'Human (m)', "KA": 0, "itemLen": 300, "evilKill": 0 }, 
+{ 'legendColor': "#aaa", 'legendName': 'Assist', "KA": 1, "itemLen": 365, "evilKill": 0 }, 
+{ 'legendColor': "#aaa", 'legendName': 'Assisted by Others', "KA": 2, "itemLen": 410, "evilKill": 0 },
+{ 'legendColor': "#aaa", 'legendName': 'Evil Kill', "KA": 0, "itemLen": 505, "evilKill": 1 }
 ];
 
 var totalKillsPerChar = [
@@ -293,10 +294,7 @@ var totalKillsPerChar = [
 [{"char": "Potentials"}, {"type1": "Demon"}, {"countD": 11}, {"type2": "Human"}, {"countH": 0}, {"type3": "Vampire"}, {"countV": 11}]
 ];
 
-var andrewData = [{"whichDotOnSpoke":"0","season":"6","episode":"19","ep_num":"119","title":"Seeing Red","k_species":"Human","who":"Andrew","assist":"Warren","KA":"2","evilKill":"1","method":"broke neck","v_species":"Demon","victim":"Nezzla Demon","with":"","location_1":"Cave","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"7","episode":"7","ep_num":"129","title":"Conversations With Dead People","k_species":"Human","who":"Andrew","assist":"The First","KA":"1","evilKill":"1","method":"stabbed","v_species":"Human","victim":"Jonathan Levinson","with":"Knife","location_1":"School (new HS)","location-2":"Basement","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"7","episode":"22","ep_num":"144","title":"Chosen","k_species":"Human","who":"Andrew","assist":"","KA":"0","evilKill":"0","method":"stabbed","v_species":"Demon","victim":"Bringer","with":"Sword","location_1":"School (new HS)","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"1","season":"7","episode":"22","ep_num":"144","title":"Chosen","k_species":"Human","who":"Andrew","assist":"","KA":"0","evilKill":"0","method":"stabbed","v_species":"Vampire","victim":"Turok-Han","with":"Knife","location_1":"School (new HS)","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},
-
-{"whichDotOnSpoke":"10","season":"1","episode":"22","ep_num":"144","title":"Chosen","k_species":"Human","who":"Andrew","assist":"","KA":"0","evilKill":"1","method":"stabbed","v_species":"Human","victim":"Turok-Han","with":"Knife","location_1":"School (new HS)","location-2":"","many":"1","mentioned":"0","au":"0","fb":"0"}
-];
+var andrewData = [{"whichDotOnSpoke":"0","season":"6","episode":"19","ep_num":"119","title":"Seeing Red","k_species":"Human","who":"Andrew","assist":"Warren","KA":"2","evilKill":"1","method":"broke neck","v_species":"Demon","victim":"Nezzla Demon","with":"","location_1":"Cave","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"7","episode":"7","ep_num":"129","title":"Conversations With Dead People","k_species":"Human","who":"Andrew","assist":"The First","KA":"1","evilKill":"1","method":"stabbed","v_species":"Human","victim":"Jonathan Levinson","with":"Knife","location_1":"School (new HS)","location-2":"Basement","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"7","episode":"22","ep_num":"144","title":"Chosen","k_species":"Human","who":"Andrew","assist":"","KA":"0","evilKill":"0","method":"stabbed","v_species":"Demon","victim":"Bringer","with":"Sword","location_1":"School (new HS)","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"1","season":"7","episode":"22","ep_num":"144","title":"Chosen","k_species":"Human","who":"Andrew","assist":"","KA":"0","evilKill":"0","method":"stabbed","v_species":"Vampire","victim":"Turok-Han","with":"Knife","location_1":"School (new HS)","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"}];
 
 var angelData = [{"whichDotOnSpoke":"0","season":"w","episode":"7","ep_num":"7","title":"Angel","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"staked","v_species":"Vampire","victim":"Darla","with":"Crossbow bolt","location_1":"Bronze","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"1","episode":"12","ep_num":"12","title":"Prophecy Girl","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"staked","v_species":"Vampire","victim":"Vampire","with":"Stake","location_1":"School","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"2","episode":"1","ep_num":"13","title":"When She Was Bad","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"staked","v_species":"Vampire","victim":"Ned","with":"Stake","location_1":"Factory","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"2","episode":"8","ep_num":"20","title":"The Dark Age","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"starved of life","v_species":"Demon","victim":"Eyghon","with":"","location_1":"Ethan's costume shop","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"2","episode":"14","ep_num":"26","title":"Innocence","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"bit","v_species":"Human","victim":"Enyos Kalderash, Jenny's Uncle","with":"","location_1":"Hotel","location-2":"Hotel room of Jenny's Uncle Enyos","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"1","season":"2","episode":"14","ep_num":"26","title":"Innocence","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"bit","v_species":"Human","victim":"Woman, cigarette smoking hooker","with":"","location_1":"Angel's mansion","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"2","episode":"15","ep_num":"27","title":"Phases","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"vamped","v_species":"Human","victim":"Theresa Klusmeyer","with":"","location_1":"Bronze","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"2","episode":"16","ep_num":"28","title":"Bewitched, Bothered and Bewildered","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"removed heart","v_species":"Human","victim":"Girl","with":"","location_1":"Quaint Shop","location-2":"","many":"0","mentioned":"1","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"2","episode":"17","ep_num":"29","title":"Passion","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"bit","v_species":"Human","victim":"Girl","with":"","location_1":"Bronze","location-2":"Out Front","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"1","season":"2","episode":"17","ep_num":"29","title":"Passion","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"broke neck","v_species":"Human","victim":"Jenny Calendar","with":"","location_1":"School","location-2":"Alley behind","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"2","season":"2","episode":"17","ep_num":"29","title":"Passion","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"suffocated","v_species":"Animal","victim":"Willow's Fish","with":"","location_1":"Willow's House","location-2":"","many":"0","mentioned":"1","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"2","episode":"19","ep_num":"31","title":"I Only Have Eyes for You","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"bit","v_species":"Human","victim":"Female","with":"","location_1":"","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"2","episode":"21","ep_num":"33","title":"Becoming, Part I","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"1","method":"killed","v_species":"Human","victim":"Female-Sacrifice","with":"","location_1":"Angel's mansion","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"3","episode":"4","ep_num":"38","title":"Beauty and the Beasts","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"choked","v_species":"Human","victim":"Pete Clarner","with":"Chain","location_1":"School","location-2":"Storeroom","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"3","episode":"10","ep_num":"44","title":"Amends","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"killed","v_species":"Human","victim":"Daniel","with":"","location_1":"Dublin, 1838","location-2":"","many":"0","mentioned":"0","au":"0","fb":"1"},{"whichDotOnSpoke":"1","season":"3","episode":"10","ep_num":"44","title":"Amends","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"killed","v_species":"Human","victim":"Margaret","with":"","location_1":"19th century Christmas party","location-2":"","many":"0","mentioned":"0","au":"0","fb":"1"},{"whichDotOnSpoke":"0","season":"3","episode":"16","ep_num":"50","title":"Doppelgängland","k_species":"Human","who":"Angel","assist":"Buffy","KA":"2","evilKill":"0","method":"staked","v_species":"Vampire","victim":"Vampire","with":"Stake","location_1":"Bronze","location-2":"Front","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"1","season":"3","episode":"16","ep_num":"50","title":"Doppelgängland","k_species":"Human","who":"Angel","assist":"Buffy","KA":"2","evilKill":"0","method":"staked","v_species":"Vampire","victim":"Vampire","with":"Stake","location_1":"Bronze","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"3","episode":"18","ep_num":"52","title":"Earshot","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"removed heart","v_species":"Demon","victim":"Telepathic Demon 2","with":"","location_1":"Park","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"3","episode":"19","ep_num":"53","title":"Choices","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"staked","v_species":"Vampire","victim":"Vampire","with":"Stake","location_1":"Cemetery","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"3","episode":"22","ep_num":"56","title":"Graduation Day II","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"killed","v_species":"Demon","victim":"Demon","with":"","location_1":"School","location-2":"Graduation Ceremony","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"1","season":"3","episode":"22","ep_num":"56","title":"Graduation Day II","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"killed","v_species":"Demon","victim":"Demons","with":"","location_1":"School","location-2":"Graduation Ceremony","many":"1","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"2","season":"3","episode":"22","ep_num":"56","title":"Graduation Day II","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"killed","v_species":"Vampire","victim":"Vampire","with":"","location_1":"School","location-2":"Graduation Ceremony","many":"1","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"0","season":"4","episode":"8","ep_num":"64","title":"Pangs","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"broke neck","v_species":"Demon","victim":"Chumash Warrior","with":"","location_1":"Giles' Apt","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"},{"whichDotOnSpoke":"1","season":"4","episode":"8","ep_num":"64","title":"Pangs","k_species":"Vampire","who":"Angel","assist":"","KA":"0","evilKill":"0","method":"stabbed","v_species":"Demon","victim":"Chumash Warrior","with":"Knife, thrown","location_1":"Giles' Apt","location-2":"","many":"0","mentioned":"0","au":"0","fb":"0"}];
 
@@ -400,7 +398,9 @@ theBuffyChart.append("rect")
   .attr("y",0)
   .attr("width",w)
   .attr("height",h)
-  .style("fill", "#ddd");
+  .style("fill", "white")
+  .style("stroke-width", 2)
+  .style("stroke", "#ccc");
 
 
 // Add a group to the canvas for the Ring of Death
@@ -538,7 +538,7 @@ var episodeTitle = d3.select("body").append("div")
 var buffyLegend = theBuffyChart.append("g")
   .attr('class', 'legendBox');
 
-var legendSpacer = 70;
+var lenMultipler = 10;
 
 // Create the colored dots for the legend
 var buffyLegendDots = buffyLegend.selectAll('circle.legendDot')
@@ -546,10 +546,12 @@ var buffyLegendDots = buffyLegend.selectAll('circle.legendDot')
   .enter()
   .append('circle')
   .attr('class', 'legendDot' )
-  .attr('cx', function (d, i) {return i * legendSpacer + 10; } )
+  .attr('cx', function (d, i) {return d.itemLen; } )
   .attr('cy', 10 )
   .attr('r', 5 )
-  .attr('fill', function (d, i) {return d.legendColor; });
+  .attr('fill', function (d, i) {return d.legendColor; })
+  .style("stroke-width", evilKillIndicator
+);
 
 // Create the smaller dots in the middle of the legend dots if necessary
 var buffyLegendAssists = buffyLegend.selectAll('circle.buffyLegendAssists')
@@ -557,7 +559,7 @@ var buffyLegendAssists = buffyLegend.selectAll('circle.buffyLegendAssists')
   .enter()
   .append('circle')
   .attr('class', 'legendDot' )
-  .attr('cx', function (d, i) {return i * legendSpacer + 10; } )
+  .attr('cx', function (d, i) {return d.itemLen; } )
   .attr('cy', 10 )
   .attr('r', function (d) {return d.KA == 0 ? 0 : 2} )
   .attr('fill', function (d) {return d.KA == 1 ? "white" : "black" });
@@ -568,19 +570,20 @@ var legendTexts = buffyLegend.selectAll("text.legendText")
   .enter()
   .append("text")
   .attr("class", "legendText")
-  .attr('x', function (d, i) {return i * legendSpacer + 20; })
+  .attr('x', function (d, i) {return d.itemLen + 8; })
   .attr('y', 15 )
   .text(function (d) { return d.legendName; });
-
 
 // Button click function to check which button pressed
 d3.selectAll('.buttons')
     .on('click', function() {
+      var killDetail = d3.select(".killDetail").style("opacity", 0);
       d3.selectAll('.buttons').classed('pressed', false)
       d3.select(this).classed('pressed', true)
         var newData = d3.select(this).property('value');
         updateCircles(window[newData])
 });
+
 
 
 // Functions
@@ -665,6 +668,19 @@ function updateCircles(newData) {
             .style("left", 8+"px")
             .style("top", 685+"px")
         })
+
+// The code I need to make the proper kill details appear.
+// Takes into account the assist factor.
+/*
+    var killDetail = d3.select(".killDetail")  
+        killDetail.html( function (d) {
+          if (d.KA == 0) {return "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + " - Weapon: "+d.with+ " - Location: " + d.location_1}
+          else if (d.KA == 1) {return
+              "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + "(assisted by" + d.assist + ") - Weapon: "+d.with+ " - Location: " + d.location_1}
+          else if (d.KA == 2) {return
+              "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.assist+' '+d.method+' '+d.victim + "(" + d.who + " assists) - Weapon: "+d.with+ " - Location: " + d.location_1}
+        })
+*/
 
 // Put total kills in centerhub
 // totalKillsPerChar

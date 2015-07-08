@@ -25,12 +25,13 @@ var sheets = [
   "jonathan",
   "nonKills",
   "Oz",
+  "potentials",
+  "allSlayers",
   "riley",
   "spike",
   "vampires",
   "willow",
   "xander",
-  "potentials",
   "allSlayers",
   "totals"
 ];
