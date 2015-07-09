@@ -259,17 +259,27 @@ var buffyTitleList = [
   { 's':7, 'e':22, 'title':'Chosen' }
 ];
 
+//colors for dots
+var colorVampire = "#f33"; //one vampire
+var colorVampireMany = "#fcc" // many vampires
+var colorDemon = "goldenrod" // one demon
+var colorDemonMany = "yellow" // many demons
+var colorHuman = "#ccf" // one human
+var colorHumanMany = "33f" // many humans
+var colorAnimal = "yellowgreen"
+
 
 var legendData = [
-{ 'legendColor': '#f33', 'legendName': 'Vampire', "KA": 0, "itemLen": 10, "evilKill": 0 }, 
-{ 'legendColor': '#fcc', 'legendName': 'Vampire (m)', "KA": 0, "itemLen": 65, "evilKill": 0 }, 
-{ 'legendColor': 'goldenrod', 'legendName': 'Demon', "KA": 0, "itemLen": 135, "evilKill": 0 }, 
-{ 'legendColor': 'yellow', 'legendName': 'Demon (m)', "KA": 0, "itemLen": 185, "evilKill": 0 }, 
-{ 'legendColor': "steelblue", 'legendName': 'Human', "KA": 0, "itemLen": 250, "evilKill": 0 }, 
-{ 'legendColor': "blue", 'legendName': 'Human (m)', "KA": 0, "itemLen": 300, "evilKill": 0 }, 
+{ 'legendColor': colorVampire, 'legendName': 'Vampire', "KA": 0, "itemLen": 10, "evilKill": 0 }, 
+{ 'legendColor': colorVampireMany, 'legendName': 'Vampire (m)', "KA": 0, "itemLen": 65, "evilKill": 0 }, 
+{ 'legendColor': colorDemon, 'legendName': 'Demon', "KA": 0, "itemLen": 135, "evilKill": 0 }, 
+{ 'legendColor': colorDemonMany, 'legendName': 'Demon (m)', "KA": 0, "itemLen": 185, "evilKill": 0 }, 
+{ 'legendColor': colorHuman, 'legendName': 'Human', "KA": 0, "itemLen": 250, "evilKill": 0 }, 
+{ 'legendColor': colorHumanMany, 'legendName': 'Human (m)', "KA": 0, "itemLen": 300, "evilKill": 0 }, 
 { 'legendColor': "#aaa", 'legendName': 'Assist', "KA": 1, "itemLen": 365, "evilKill": 0 }, 
 { 'legendColor': "#aaa", 'legendName': 'Assisted by Others', "KA": 2, "itemLen": 410, "evilKill": 0 },
-{ 'legendColor': "#aaa", 'legendName': 'Evil Kill', "KA": 0, "itemLen": 505, "evilKill": 1 }
+{ 'legendColor': "#aaa", 'legendName': 'Evil Kill', "KA": 0, "itemLen": 505, "evilKill": 1 },
+{ 'legendColor': colorAnimal, 'legendName': 'Animal', "KA": 0, "itemLen": 555, "evilKill": 1 }
 ];
 
 var totalKillsPerChar = [
@@ -693,16 +703,16 @@ function updateCircles(newData) {
 
 function colorTheDots(d) {
   if (d.v_species == "Vampire") {
-    if (d.many == 0) {return "#f33"}
-      else {return "#fcc"};
+    if (d.many == 0) {return colorVampire}
+      else {return colorVampireMany};
   } else if (d.v_species == "Demon") {
-    if (d.many == 0) {return "goldenrod"}
-      else {return "yellow"};
+    if (d.many == 0) {return colorDemon}
+      else {return colorDemonMany};
   } else if (d.v_species == "Human") {
-    if (d.many == 0) {return "#ccf"}
-      else {return "blue"}
+    if (d.many == 0) {return colorHuman}
+      else {return colorHumanMany}
   } else if (d.v_species == "Animal") {
-    return "yellowgreen"}
+    return colorAnimal}
 
 };  
 
