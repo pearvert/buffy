@@ -1,25 +1,30 @@
 <html>
 <head>
 <script src="./bower_components/d3/d3.min.js"></script>
-<title>Buffy Body Count-again</title>
+<title>Buffy Body Count</title>
 
 <style>
 h2 {
   margin-bottom: 0px;
 }
 .subTitle {
+  font-size: 1em;
+  font-weight: bold;
+  color: maroon;
+  margin: 0px;
+}
+.instruction {
   font-size: .75em;
   color: #999;
   margin: 0px;
 }
 .killDetail {
+  background-color: #ddd;
+  width: 600px;
+  padding: 2px;
   text-align: left;
   font: 12px sans-serif;
   pointer-events: none;
-}
-.instruction {
-  font-size: .5em;
-  color: #999;
 }
 .ring {
   stroke: none;
@@ -82,6 +87,7 @@ div#chart {
 <body>
 <h2>Buffy Body Count</h2>
 <p class="subTitle">A Nice and Accurate Body Count of Buffy the Vampire Slayer</p>
+<p class="instruction">Click a button for a characters kills. Click a circle for information on the individual kill.</p>
 <p class="killDetail">...</p>
 
 <div id="chart"></div>
@@ -587,7 +593,7 @@ var legendTexts = buffyLegend.selectAll("text.legendText")
 // Button click function to check which button pressed
 d3.selectAll('.buttons')
     .on('click', function() {
-      var killDetail = d3.select(".killDetail").style("opacity", 0);
+      var killDetail = d3.select(".killDetail").transition().duration(1000).style("opacity", 0);
       d3.selectAll('.buttons').classed('pressed', false)
       d3.select(this).classed('pressed', true)
         var newData = d3.select(this).property('value');
@@ -671,9 +677,11 @@ function updateCircles(newData) {
     // detailed information about an individual kill
     var makeSomeDots = dotsOfDeath.selectAll('circle.dotOfDeath')
       .on("click", function(d) {
-        killDetail.transition()
-          .duration(200)
-          .style("opacity", .9);
+        killDetail
+          .style("opacity", 0)
+          .transition()
+          .duration(1000)
+          .style("opacity", .9)
         killDetail.html("S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + " - Weapon: "+d.with+ " - Location: " + d.location_1)
             .style("left", 8+"px")
             .style("top", 685+"px")
