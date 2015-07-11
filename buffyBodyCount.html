@@ -604,7 +604,7 @@ var legendTexts = buffyLegend.selectAll("text.legendText")
 // Button click function to check which button pressed
 d3.selectAll('.buttons')
     .on('click', function() {
-      var killDetail = d3.select(".killDetail").transition().duration(1000).style("opacity", 0);
+      killDetail.transition().duration(1000).style("opacity", 0)
       d3.selectAll('.buttons').classed('pressed', false)
       d3.select(this).classed('pressed', true)
         var newData = d3.select(this).property('value');
@@ -652,7 +652,8 @@ function updateCircles(newData) {
       .attr('r', 0)
       .remove();
 
-  var makeSomeDotsAssist = dotsOfDeath.selectAll('circle.assistDot').data(newData)
+  var makeSomeDotsAssist = dotsOfDeath.selectAll('circle.assistDot')
+    .data(newData)
 
     // add mini dots for assists
     makeSomeDotsAssist.enter().append('circle')
@@ -687,21 +688,22 @@ function updateCircles(newData) {
 
     // detailed information about an individual kill
     var makeSomeDots = dotsOfDeath.selectAll('circle.dotOfDeath')
+      .data(newData)
       .on("click", function(d) {
         killDetail
           .style("opacity", 0)
           .transition()
           .duration(1000)
           .style("opacity", .9)
+    })
 
-        killDetail.html( function (d) {
+        killDetail.data(newData).html( function (d) {
           if (d.KA == 0) {return "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + " - Weapon: "+d.with+ " - Location: " + d.location_1}
           else if (d.KA == 1) {return
               "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + "(assisted by" + d.assist + ") - Weapon: "+d.with+ " - Location: " + d.location_1}
           else if (d.KA == 2) {return
               "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.assist+' '+d.method+' '+d.victim + "(" + d.who + " assisted) - Weapon: "+d.with+ " - Location: " + d.location_1}
         })
-    })
 };
 
 /*        killDetail.html("S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + " - Weapon: "+d.with+ " - Location: " + d.location_1)
