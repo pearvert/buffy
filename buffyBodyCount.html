@@ -693,23 +693,27 @@ function updateCircles(newData) {
           .transition()
           .duration(1000)
           .style("opacity", .9)
-        killDetail.html("S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + " - Weapon: "+d.with+ " - Location: " + d.location_1)
-            .style("left", 8+"px")
-            .style("top", 685+"px")
-        })
 
-// The code I need to make the proper kill details appear.
-// Takes into account the assist factor.
-/*
-    var killDetail = d3.select(".killDetail")  
         killDetail.html( function (d) {
           if (d.KA == 0) {return "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + " - Weapon: "+d.with+ " - Location: " + d.location_1}
           else if (d.KA == 1) {return
               "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + "(assisted by" + d.assist + ") - Weapon: "+d.with+ " - Location: " + d.location_1}
           else if (d.KA == 2) {return
-              "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.assist+' '+d.method+' '+d.victim + "(" + d.who + " assists) - Weapon: "+d.with+ " - Location: " + d.location_1}
+              "S"+d.season+"E"+d.episode+" ("+d.title+") "+d.assist+' '+d.method+' '+d.victim + "(" + d.who + " assisted) - Weapon: "+d.with+ " - Location: " + d.location_1}
         })
+    })
+};
+
+/*        killDetail.html("S"+d.season+"E"+d.episode+" ("+d.title+") "+d.who+' '+d.method+' '+d.victim + " - Weapon: "+d.with+ " - Location: " + d.location_1)
+            .style("left", 8+"px")
+            .style("top", 685+"px")
 */
+
+// The code I need to make the proper kill details appear.
+// Takes into account the assist factor.
+/*
+    var killDetail = d3.select(".killDetail")  
+        })
 
 // Put total kills in centerhub
 // totalKillsPerChar
@@ -718,7 +722,7 @@ function updateCircles(newData) {
 
       totalKill = totalKills.select("text.totalKillsPerChar")
         .data(totalKillsPerChar) 
-};
+*/
 
 function colorTheDots(d) {
   if (d.v_species == "Vampire") {
