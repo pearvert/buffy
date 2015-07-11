@@ -32,8 +32,7 @@ var sheets = [
   "vampires",
   "willow",
   "xander",
-  "allSlayers",
-  "totals"
+  "kendra"
 ];
 
 // Prepare the XLSX -> JSON transformer and register routes in express to the JSON api
