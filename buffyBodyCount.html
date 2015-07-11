@@ -43,17 +43,27 @@ h2 {
 }
 .buttons {
   background: #eee;
+  border: none;
+  outline: none;
   margin-left: 10px;
   margin-bottom: 4px;
   width: 100px;
 }
-.pressed {
-  color: white;
-  background: #666;
+.buttons:focus {
+  background: #aaa;  
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  margin-bottom: 4px;
+  width: 100px;
 }
 .buttons:hover {
   background: #ccc;
   color: #900;
+}
+.pressed {
+  color: white;
+  background: #666;
 }
 .legendBox {
   background: #f00;
