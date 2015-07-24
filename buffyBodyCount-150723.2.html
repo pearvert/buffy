@@ -6,13 +6,6 @@
 <style>
 #wrapper {
   width: 750px;
-  position: relative;
-}
-.roundal {
-    position: absolute;
-    left: 235px;
-    top: 320px;
-    visibility: "hidden";
 }
 h2 {
   margin-bottom: 0px;
@@ -123,12 +116,6 @@ div#chart {
 <p class="killDetail">...</p>
 
 <div id="chart"></div>
-
-<div id="characterRoundals">
-<p value="willowData" class="roundal"><img src="images/willow.png"></p>
-<p value="xanderData" class="roundal"><img src="images/xander.png"></p>
-<p value="buffyData" class="roundal"><img src="images/buffy.png"></p>
-</div>
 
 <div id="buttons_1" width="600px">
 <button value="andrewData" class="buttons">Andrew</button><br />
@@ -567,6 +554,7 @@ var dotsOfDeath = theBuffyChart.append("g")
   .attr("fill", "#666");
 
 // Draw EndCap in the center
+/*
 centerHubCircle = theBuffyChart.append("g")
   .attr("class", "endCap")
   .attr("stroke", "black")
@@ -581,7 +569,6 @@ var centerCap = centerHubCircle.selectAll("circle.endCap")
   .attr("cy", centerPoint)
   .attr("r", 65)
   .style("fill", "white");
-/*
 */
 
 // killDetail for added information on specific dot
@@ -638,32 +625,18 @@ d3.selectAll(".buttons")
     .on("click", function() {
       killDetail.transition().duration(1000).style("opacity", 0)
       d3.selectAll(".buttons").classed("pressed", false)
-      d3.selectAll(".roundal").attr("visibility", "hidden")
       d3.select(this).classed("pressed", true)
         var newData = d3.select(this).property("value");
         var pix = d3.select(this).property("name");
-        updateCircles(window[newData])
-        updateRoundals(window[newData])
+        updateCircles(window[newData], pix)
 });
 
 
 
 // Functions
 
-function updateRoundal(newData) {
-
-}
-
-/*
-    // put character picture in center
-    var charPix = d3.select("#roundal")
-      .append("svg:image")
-      .attr("xlink:href", "images/buffy.png");
-*/
-
-
 // This function wraps around the d3 pattern (bind, add, update, remove)
-function updateCircles(newData) {
+function updateCircles(newData, pix) {
 
   // bind data for death dots
   var makeSomeDots = dotsOfDeath.selectAll("circle.dotOfDeath")
@@ -740,6 +713,17 @@ function updateCircles(newData) {
         killDetail.style("opacity", 0).transition().duration(1000).style("opacity", .9)
         killDetail.html("S"+d.season+"E"+d.episode+" ("+d.title+") "+d.killInfo)
     })
+
+    // put character picture in center
+    var charPix = theBuffyChart.append("g");
+
+    var newCharPix = charPix.append("svg:image")
+      .attr("class", "picture")
+      .attr("xlink:href", "images/buffy.png")
+      .attr("x", centerPoint - 65)
+      .attr("y", centerPoint - 65)
+      .attr("w", "130")
+      .attr("h", "130");
 
 };
 /*
