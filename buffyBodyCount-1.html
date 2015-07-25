@@ -10,7 +10,7 @@
 }
 .roundal {
     position: absolute;
-    left: 135px;
+    left: 235px;
     top: 320px;
     visibility: "hidden";
 }
@@ -637,24 +637,35 @@ var legendTexts = buffyLegend.selectAll("text.legendText")
 d3.selectAll(".buttons")
     .on("click", function() {
       killDetail.transition().duration(1000).style("opacity", 0)
-      d3.selectAll(".buttons").classed("pressed", false)
-      d3.selectAll(".roundal").attr("visibility", "hidden")
-      d3.select(this).classed("pressed", true)
-        var newData = d3.select(this).property("value");
-        var pix = d3.select(this).property("name");
-        updateCircles(window[newData])
-        updateRoundals(window[newData])
+        d3.selectAll(".buttons").classed("pressed", false)
+        d3.select(this).classed("pressed", true)
+      var newData = d3.select(this).property("value");
+      updateCircles(window[newData])
+
 });
 
 
 
 // Functions
 
-function updateRoundal(newData) {
-
-}
-
 /*
+
+// These are functions I'm exploring to make the roundals
+// turn on/off their visibility/opacity
+
+function updateRoundals() {
+  d3.selectAll(".roundal").style("opacity", 0)
+  d3.select(newData).style("opacity", 1)
+};  
+
+function toggle_visibility(id) {
+  var e = document.getElementById(id);
+    if(e.style.visibility == "visible")
+      e.style.visibility = "hidden";
+    else
+      e.style.visibility = "visible";
+};
+
     // put character picture in center
     var charPix = d3.select("#roundal")
       .append("svg:image")
