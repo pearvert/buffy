@@ -645,6 +645,8 @@ d3.selectAll(".buttons")
       d3.select(this).classed("pressed", true)
       var newData = d3.select(this).property("value");
       updateCircles(window[newData])
+      d3.selectAll('#characterRoundals p[value]').classed('is-shown', false);
+      d3.selectAll('#characterRoundals p[value='+newData+']').classed('is-shown', true)
 });
 
 
