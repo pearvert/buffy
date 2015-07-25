@@ -12,7 +12,10 @@
     position: absolute;
     left: 235px;
     top: 320px;
-    visibility: "hidden";
+    display: none;
+}
+.roundal.is-shown {
+  display: block;
 }
 h2 {
   margin-bottom: 0px;
@@ -128,7 +131,7 @@ div#chart {
 <p value="willowData" class="roundal"><img src="images/willow.png"></p>
 <p value="xanderData" class="roundal"><img src="images/xander.png"></p>
 <p value="buffyData" class="roundal"><img src="images/buffy.png"></p>
-<p value="screamData" class="roundal"><img src="images/buffyScream.png"></p>
+<p value="screamData" class="roundal is-shown"><img src="images/buffyScream.png"></p>
 </div>
 
 <div id="buttons_1" width="600px">
@@ -642,6 +645,8 @@ d3.selectAll(".buttons")
       d3.select(this).classed("pressed", true)
       var newData = d3.select(this).property("value");
       updateCircles(window[newData])
+      d3.selectAll('#characterRoundals p[value]').classed('is-shown', false);
+      d3.selectAll('#characterRoundals p[value='+newData+']').classed('is-shown', true)
 });
 
 
