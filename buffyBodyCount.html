@@ -637,37 +637,23 @@ var legendTexts = buffyLegend.selectAll("text.legendText")
 d3.selectAll(".buttons")
     .on("click", function() {
       killDetail.transition().duration(1000).style("opacity", 0)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
       d3.selectAll(".buttons").classed("pressed", false)
       d3.selectAll(".roundal").attr("visibility", "hidden")
       d3.select(this).classed("pressed", true)
         var newData = d3.select(this).property("value");
         var pix = d3.select(this).property("name");
         updateCircles(window[newData])
-<<<<<<< HEAD
-        updateRoundals(window[newData])
-=======
-=======
->>>>>>> master
         d3.selectAll(".buttons").classed("pressed", false)
         d3.select(this).classed("pressed", true)
       var newData = d3.select(this).property("value");
       updateCircles(window[newData])
 
->>>>>>> master
 });
 
 
 
 // Functions
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> master
 function updateRoundal(newData) {
 
 }
