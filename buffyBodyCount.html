@@ -638,13 +638,7 @@ d3.selectAll(".buttons")
     .on("click", function() {
       killDetail.transition().duration(1000).style("opacity", 0)
       d3.selectAll(".buttons").classed("pressed", false)
-      d3.selectAll(".roundal").attr("visibility", "hidden")
       d3.select(this).classed("pressed", true)
-        var newData = d3.select(this).property("value");
-        var pix = d3.select(this).property("name");
-        updateCircles(window[newData])
-        d3.selectAll(".buttons").classed("pressed", false)
-        d3.select(this).classed("pressed", true)
       var newData = d3.select(this).property("value");
       updateCircles(window[newData])
 
