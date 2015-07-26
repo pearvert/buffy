@@ -16,6 +16,7 @@ var sheets = [
   "anya",
   "buffy",
   "cordelia",
+  "darla",
   "dawn",
   "demons",
   "drusilla",
